@@ -1,38 +1,57 @@
-# create-svelte
+# rbx-sniper
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+An item sniper for the game Roblox that's meant to buy item's at a cheap price.
 
-## Creating a project
+### How it works
 
-If you're seeing this, you've probably already done this step. Congrats!
+This website works by utilizing Roblox's API in order to fetch information about the state of items such as the price, owner, amount listed, etc.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+You can add an item monitor by clicking "Add monitor" button and pasting it in the correct field, you can also set your minimum profit percentage.
 
-# create a new project in my-app
-npm create svelte@latest my-app
+The profit is calculated using the following equation
+
+```
+profit = x * 0.7 - (y + y * p)
 ```
 
-## Developing
+where
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+```
+x = old price
+y = new price
+p = profit percentage
+```
+
+### How to set it up
+
+You can run this item sniper locally by using these commands
+
+```bash
+npm clone https://github.com/IgnacyBialobrzewski/rbx-sniper
+npm install
+```
+
+Now create `.env` file and paste the following code
+
+```lua
+VITE_COOKIE="REPLACE THIS WITH .ROBLOSECURITY COOKIE"
+```
+
+Finally you can run the sniper
 
 ```bash
 npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
+To create a production version you can use the following command
 
 ```bash
 npm run build
 ```
 
-You can preview the production build with `npm run preview`.
+## Credits
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+- `Ignacy Białobrzewski`
+- `Szymon Lenard`
+- `Tomasz Leśniewski`
+- `Dariusz Ferdyniak`
